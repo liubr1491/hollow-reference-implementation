@@ -14,21 +14,21 @@
     <dependency>
       <groupId>com.netflix.hollow</groupId>
       <artifactId>hollow</artifactId>
-      <version>2.6.8</version>
+      <version>7.1.1</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>com.netflix.hollow</groupId>
       <artifactId>hollow-diff-ui</artifactId>
-      <version>2.6.8</version>
+      <version>7.1.1</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>com.netflix.hollow</groupId>
       <artifactId>hollow-explorer-ui</artifactId>
-      <version>2.6.8</version>
+      <version>7.1.1</version>
       <scope>compile</scope>
     </dependency>
 
@@ -79,6 +79,28 @@
           <target>1.8</target>
           <encoding>UTF-8</encoding>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>how.hollow.producer.Producer</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
